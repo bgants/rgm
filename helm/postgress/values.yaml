@@ -1,0 +1,41 @@
+image:
+  repository: bgants/postgres
+  name: postgres
+  pullPolicy: IfNotPresent
+      
+env:
+  - name: POSTGRES_PASSWORD
+    value: password
+
+replicaCount: 1
+
+volumes:
+  configMap:
+    name: postgres-config
+    mountPath: "docker-entrypoint-initdb.d"
+
+configMap:
+    name: postgres-config
+    fromFiles: true
+
+probes:
+  liveness:
+    type: tcpSocket
+    initialDelaySeconds: 60
+    periodSeconds: 20
+    failureThreshold: 10
+    timeoutSeconds: 1
+  readiness:
+    type: tcpSocket
+    initialDelaySeconds: 60
+    periodSeconds: 20
+    failureThreshold: 10
+    timeoutSeconds: 1
+
+serviceAccount:
+  name: default
+
+service:
+  type: ClusterIP
+  name: postgres
+  port: 5432

@@ -1,0 +1,30 @@
+# Java bytecode
+*.class
+
+# Package Files #
+*.jar
+*.war
+*.ear
+
+# IntelliJ artifacts
+/.settings
+/.project
+*.iml
+*.iws
+*.ipr
+*.idea
+/.classpath
+
+# Maven
+**/target
+
+# Runtime
+*.log
+
+# NPM
+**/node_modules
+**/node
+
+# Helm
+*.lock
+*.tgz
