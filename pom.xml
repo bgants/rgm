@@ -7,7 +7,7 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.4.0</version>
+		<version>2.2.3.RELEASE</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 
@@ -18,13 +18,27 @@
 
 	<properties>
 		<java.version>11</java.version>
-		<image>${project.artifactId}:${version}</image>
+		<image>docker.io/bgants/${project.artifactId}:${version}</image>
+		<spring.cloud-version>Hoxton.SR1</spring.cloud-version>
 	</properties>
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>org.springframework.cloud</groupId>
+				<artifactId>spring-cloud-dependencies</artifactId>
+				<version>${spring.cloud-version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
 
     <modules>
         <module>alpha-service</module>
         <module>beta-service</module>
 		<module>gamma-service</module>
+		<module>configserver</module>
     </modules>
 
 	<build>
@@ -35,9 +49,18 @@
 					<artifactId>jib-maven-plugin</artifactId>
 					<version>2.6.0</version>
 					<configuration>
+						<from>
+							<image>adoptopenjdk:11</image>
+						</from>
 						<to>
 							<image></image>
+							<credHelper>pass</credHelper>
 						</to>
+						<container>
+							<extraClasspath>/config</extraClasspath>
+						</container>
+
+
 					</configuration>
 				</plugin>
 				<plugin>
