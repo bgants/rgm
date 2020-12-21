@@ -20,3 +20,11 @@ spring:
   jms:
     template:
       default-destination: rgm.queue
+eureka:
+  instance:
+    preferIpAddress: true
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    serviceUrl:
+      defaultZone: http://eurekaserver:8070/eureka/

@@ -4,11 +4,11 @@ eureka:
   instance:
     hostname: eurekaserver
   client:
-    registerWithEurka: false
-    fetchRegistry: false
+    register-with-eureka: false
+    fetch-registry: false
     service-url:
       defaultZone: ${eureka.instance.hostname}:${server.port}/eureka/
   server:
-      waitTimeInMsWhenSYncEmpty: 5
+      waitTimeInMsWhenSyncEmpty: 5
 
 
