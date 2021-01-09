@@ -18,7 +18,7 @@ public class EmployeeController {
     return employeeService.read();
   }
 
-  @PostMapping
+  @PostMapping("/employee")
   @ResponseStatus(HttpStatus.CREATED)
   public Employee create(@RequestBody Employee employee) {
     return employeeService.create(employee);

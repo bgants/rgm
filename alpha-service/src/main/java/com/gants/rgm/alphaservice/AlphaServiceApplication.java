@@ -11,9 +11,8 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 @EnableAutoConfiguration
 @EnableDiscoveryClient
 public class AlphaServiceApplication {
-
 	public static void main(String[] args) {
 		SpringApplication.run(AlphaServiceApplication.class, args);
 	}
-
 }//end Application
+

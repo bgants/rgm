@@ -23,6 +23,15 @@ probes:
     timeoutSeconds: 1
 
 service:
-  type: ClusterIP
+  type: NodePort 
   name: alpha-service
-  port: 8085
+  port: 8080
+
+ingress:
+  enabled: true
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /$2
+  hosts: 
+   - host: sirus 
+     paths:
+        - /alpha(/|$)(.*)
