@@ -1,16 +1,7 @@
-package com.gants.rgm.alphaservice.models;
+package com.gants.rgm.betaservice.models;
 
-import javax.persistence.*;
 import javax.validation.constraints.Size;
-import java.io.Serializable;
-
-@Entity
-@Table(name="person" )
 public class Employee {
-
-  @Id
-  @GeneratedValue(strategy = GenerationType.AUTO)
-  private Long id;
 
   @Size(min = 3, max = 20)
   private String name;
@@ -22,10 +13,6 @@ public class Employee {
     this.name = name;
   }
 
-  public Long getId() {
-    return id;
-  }
-
   public String getName() {
     return name;
   }
@@ -33,7 +20,6 @@ public class Employee {
   @Override
   public String toString() {
     return "Employee{" +
-        "id=" + id +
         ", name='" + name + '\'' +
         '}';
   }

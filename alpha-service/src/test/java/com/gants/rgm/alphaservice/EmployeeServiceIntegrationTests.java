@@ -36,8 +36,6 @@ public class EmployeeServiceIntegrationTests {
   }
 
   @Test
-
-  
   public void whenValidListOfEmployees_thenEmployeesShouldBeFound() {
     Mockito.when(employeeRepository.findAll()).thenReturn(Arrays.asList(
         new Employee("Bob"),

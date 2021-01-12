@@ -1,0 +1,15 @@
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: rgm-ingress
+  annotations:
+    kubernetes.io/ingress.class: "rgm"
+spec:
+  rules:
+  - host: rgm.com 
+    http:
+      paths:
+      - path: /alpha-service
+        backend:
+          serviceName: echo
+          servicePort: 8085
